@@ -59,3 +59,5 @@ Afin de pouvoir interragir avec la machine virtuelle nouvellement créée, il se
 ## 4 : Docker
 ### 4.0 : Installation de Docker
 Afin de pouvoir dérouler ce TP, il est nécessaire d'installer Docker. Pour se faire, aller à l'url suivante : https://www.docker.com/products/docker-desktop et suivre les instructions.
+
+### 4.1 : PetClinic
