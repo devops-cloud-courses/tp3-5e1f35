@@ -83,7 +83,7 @@ Penser à bien tagguer votre image afin de pouvoir la pousser sur le hub Docker 
 
 Afin de vérifier que l'image buildée fonctionne, vous pouvez démarrer l'image nouvellement créée avec la commande [`docker run`](https://docs.docker.com/engine/reference/run/). Normalement, les options mis par défaut dans le Dockerfile suffisent à démarrer l'application.
 
-Si l'application ne démarre pas, ou une erreur survient, il est nécessaire de changer le Dockerfile et recréer l'image.
+Si l'application ne démarre pas, ou une erreur survient, il est nécessaire de changer le `Dockerfile` et recréer l'image.
 
 Une fois votre image créée et tagguée, vous pouvez maintenant la pousser sur le hub, après vous être loggué :
 - https://docs.docker.com/engine/reference/commandline/login/
