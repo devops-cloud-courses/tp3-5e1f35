@@ -24,9 +24,11 @@ Afin de pouvoir effectuer ce TP, il est nécessaire d'installer Terraform. La pa
 
 ### 2.1 : Accès à votre console AWS
 Pour avoir accès à votre console AWS, il est nécessaire de récupérer les `access_key`, `secret_key` et `token` de votre compte AWS Edudate. Pour se faire, se connecter à son compte AWS et cliquer sur `Account details` en dessous de `Your AWS Account Status`
+
 <img src="images/account-status.png" width="50%" />
 
 Ensuite, il suffit de récupérer les informations affichées et de les copier/coller dans les fichiers `provider.tf` fournis
+
 <img src="images/account-details.png" width="75%" />
 
 ## 3 : IaaS
@@ -46,18 +48,45 @@ Afin de pouvoir interragir avec la machine virtuelle nouvellement créée, il se
 
 > ⚠️  **WARNING**: Penser à bien commiter les fichiers dans le dossier correspondant avant de passer à la suite
 
-## PaaS
+> ⚠️  **WARNING**: Penser à bien détruire les ressources AWS créées afin de ne pas gaspiller vos crédits avec la commande `terraform destroy`
 
-* Créer une base de données RDS MySQL
-* Installer les {schema,data}.sql
-* Récuperer la connexion
-* Modifier PetClinic
-* Créer un Elastic Beanstalk
-* Déployer PetClinic sur Elastic Beanstalk
-* Vérifier que PetClinic fonctionne
+## 4 : PaaS
+### 4.0 : Installation de PetClinic
+Le principe de ce deuxième TP est de créer le(s) fichier(s) nécessaire(s) pour la création d'un environnement AWS Beanstalk, ainsi que la base de données AWS RDS associée.
 
-## 4 : Docker
-### 4.0 : Installation de Docker
+Pour ce TP, il est nécessaire de créer les objets suivants sur AWS :
+- [aws_elastic_beanstalk_environment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_environment)
+- [aws_elastic_beanstalk_application](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_application)
+- [aws_elastic_beanstalk_configuration_template](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elastic_beanstalk_configuration_template)
+- [aws_db_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance)
+
+> ⚠️  **WARNING**: Penser à bien commiter les fichiers dans le dossier correspondant avant de passer à la suite
+
+> ⚠️  **WARNING**: Penser à bien détruire les ressources AWS créées afin de ne pas gaspiller vos crédits avec la commande `terraform destroy`
+
+## 5 : Docker
+### 5.0 : Installation de Docker
 Afin de pouvoir dérouler ce TP, il est nécessaire d'installer Docker. Pour se faire, aller à l'url suivante : https://www.docker.com/products/docker-desktop et suivre les instructions.
 
-### 4.1 : PetClinic
+### 5.1 : PetClinic
+Nous allons maintenant installer PetClinic dans un container Docker pour l'exécuter. Le but de ce TP est de créer l'image d'exécution de PetClinic. Un fichier `Dockerfile` est déjà fourni avec les paramètres par défaut. Il suffira alors pour ce TP d'ajouter les lignes d'instructions après la partie `# TODO`.
+
+Voici la liste des instructions Docker : https://docs.docker.com/engine/reference/builder/
+
+Une fois les instructions ajoutées, il faut maintenant créer l'image Docker et la pousser dans une registry. Pour ce TP, nous allons utiliser la registry officielle de Docker, le hub Docker.
+
+Si vous n'avez pas de compte sur le hub Docker, il faut en créer un ici : https://hub.docker.com/signup
+
+Une fois votre compte hub créé, vous pouvez maintenant pousser les images créées sur votre compte. Après avoir ajouté les instructions, créer l'image Docker grâce à la commande [`docker build`](https://docs.docker.com/engine/reference/commandline/build/).
+
+Penser à bien tagguer votre image afin de pouvoir la pousser sur le hub Docker (https://docs.docker.com/engine/reference/commandline/build/#tag-an-image--t).
+
+Afin de vérifier que l'image buildée fonctionne, vous pouvez démarrer l'image nouvellement créée avec la commande [`docker run`](https://docs.docker.com/engine/reference/run/). Normalement, les options mis par défaut dans le Dockerfile suffisent à démarrer l'application.
+
+Si l'application ne démarre pas, ou une erreur survient, il est nécessaire de changer le Dockerfile et recréer l'image.
+
+Une fois votre image créée et tagguée, vous pouvez maintenant la pousser sur le hub, après vous être loggué :
+- https://docs.docker.com/engine/reference/commandline/login/
+- https://docs.docker.com/engine/reference/commandline/push/
+
+> ⚠️  **WARNING**: Créer une issue nommée 5.1 avec l'url de votre repo public du hub Docker contenant votre image
