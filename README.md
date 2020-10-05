@@ -1,12 +1,12 @@
 # Cloud public - TP3
 
 ## Instructions
-Durant ce TP, nous allons mettre en oeubre Terraform comme vu durant le cours. Le principe de ce TP sera de déployer Petclinic sur les différents infrastructure que propose AWS (IaaS, PaaS, Container) en n'utilisant uniquement que Terraform. Chaque réponse sera à rendre sous forme de Pull Request dans le repository. Chaque étudiant devra alors commiter les fichiers Terraform nécessaire à la création des environnements.
+Durant ce TP, nous allons mettre en oeuvre Terraform comme vu durant le cours. Le principe de ce TP sera de déployer Petclinic sur les différents infrastructure que propose AWS (IaaS, PaaS, Container) en n'utilisant uniquement que Terraform. Chaque réponse sera à rendre sous forme de **Pull Request** dans le repository. Chaque étudiant devra alors commiter les fichiers Terraform nécessaire à la création des environnements.
 
 Un bref rappel de l'architecture de l'application
 ![Architecture](https://spring-petclinic.github.io/images/petclinic-microservices-architecture.png "Architecture")
 
-Le TP est découpé en deux parties : le fichier ```README.md``` suivant, ainsi qu'un dossier answer qui contiendra la totalité des fichiers Terraform à rendre pour ce TP.
+Le TP est découpé en deux parties : le fichier `README.md` suivant, ainsi qu'un dossier `answer` qui contiendra la totalité des fichiers Terraform à rendre pour ce TP.
 
 ## 1 : Git
 ### 1.0 : Forker le repo du lab
@@ -20,10 +20,10 @@ Pour des questions de simplicité, les fichiers `main.tf` et `provider.tf` sont 
 
 ## 2 : Terraform
 ### 2.0 : Installation de Terraform
-Afin de pouvoir effectuer ce TP, il est nécessaire d'installer Terraform. La page d'installation de Terraform est disponible à l'adresse suivante : https://www.terraform.io/downloads.html
+Afin de pouvoir effectuer ce TP, il est nécessaire d'installer **Terraform**. La page d'installation de Terraform est disponible à l'adresse suivante : https://www.terraform.io/downloads.html
 
 ### 2.1 : Accès à votre console AWS
-Pour avoir accès à votre console AWS, il est nécessaire de récupérer les `access_key`, `secret_key` et `token` de votre compte AWS Edudate. Pour se faire, se connecter à son compte AWS et cliquer sur `Account details` en dessous de `Your AWS Account Status`
+Pour avoir accès à votre console AWS, il est nécessaire de récupérer les `access_key`, `secret_key` et `token` de votre compte AWS Educate. Pour se faire, se connecter à son compte AWS Educate et cliquer sur `Account details` en dessous de `Your AWS Account Status`
 
 <img src="images/account-status.png" width="50%" />
 
