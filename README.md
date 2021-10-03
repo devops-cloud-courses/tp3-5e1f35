@@ -23,13 +23,25 @@ Pour des questions de simplicité, les fichiers `main.tf` et `provider.tf` sont 
 Afin de pouvoir effectuer ce TP, il est nécessaire d'installer **Terraform**. La page d'installation de Terraform est disponible à l'adresse suivante : https://www.terraform.io/downloads.html
 
 ### 2.1 : Accès à votre console AWS
-Pour avoir accès à votre console AWS, il est nécessaire de récupérer les `access_key`, `secret_key` et `token` de votre compte AWS Educate. Pour se faire, se connecter à son compte AWS Educate et cliquer sur `Account details` en dessous de `Your AWS Account Status`
+Pour avoir accès à votre console AWS, il est nécessaire de générer les `access_key` et `secret_key` de votre compte AWS. Pour se faire, se connecter à son compte AWS et cliquer sur `My Security Credentials` dans le menu de son `Account`
 
-<img src="images/account-status.png" width="50%" />
+<img src="images/security-credentials.png" width="25%" />
 
-Ensuite, il suffit de récupérer les informations affichées et de les copier/coller dans les fichiers `provider.tf` fournis
+Ensuite, il suffit de générer les `access_key` et `secret_key` en cliquant sur le bouton `Create access key`
 
-<img src="images/account-details.png" width="75%" />
+<img src="images/access-keys.png" width="75%" />
+
+Une `access_key` et une `secret_key` masquée seront alors générées
+
+<img src="images/secret-key.png" width="75%" />
+
+Pour les utiliser, il faut alors faire un export des variables d'environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY`
+
+```
+$ export AWS_ACCESS_KEY_ID="anaccesskey"
+$ export AWS_SECRET_ACCESS_KEY="asecretkey"
+$ terraform init
+```
 
 ## 3 : IaaS
 ### 3.0 : Installation de PetClinic
@@ -48,7 +60,7 @@ Afin de pouvoir interragir avec la machine virtuelle nouvellement créée, il se
 
 > ⚠️  **WARNING**: Penser à bien commiter les fichiers dans le dossier correspondant avant de passer à la suite
 
-> ⚠️  **WARNING**: Penser à bien détruire les ressources AWS créées afin de ne pas gaspiller vos crédits avec la commande `terraform destroy`
+> ⚠️  **WARNING**: Une fois les fichiers créés et commités, penser à bien détruire les ressources AWS créées avec la commande `terraform destroy`
 
 ## 4 : PaaS
 ### 4.0 : Installation de PetClinic
@@ -62,7 +74,7 @@ Pour ce TP, il est nécessaire de créer les objets suivants sur AWS :
 
 > ⚠️  **WARNING**: Penser à bien commiter les fichiers dans le dossier correspondant avant de passer à la suite
 
-> ⚠️  **WARNING**: Penser à bien détruire les ressources AWS créées afin de ne pas gaspiller vos crédits avec la commande `terraform destroy`
+> ⚠️  **WARNING**: Une fois les fichiers créés et commités, penser à bien détruire les ressources AWS créées avec la commande `terraform destroy`
 
 ## 5 : Docker
 ### 5.0 : Installation de Docker
