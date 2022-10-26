@@ -5,6 +5,7 @@ resource "aws_instance" "my_instance" {
   count         = 1
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
+  ### DO NOT EDIT ABOVE !!
 }
 
 resource "aws_key_pair" "my_kp" {
